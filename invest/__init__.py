@@ -42,7 +42,7 @@ class Quant:
         # cnt : 이동평균선에서 사용할 일자
         band_df = boll.create_band(self.df, self.start, self.end, self.col, cnt)
         trade_df = boll.create_trade(band_df)
-        # trade_df['trade'].fillna
+        trade_df['trade'].fillna("", inplace=True)
         df, acc_rtn = boll.create_rtn(trade_df)
         print(f"볼린져밴드 전략으로 최종 수익율은 {acc_rtn}")
         return df, acc_rtn

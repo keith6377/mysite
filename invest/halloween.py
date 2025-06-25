@@ -19,7 +19,7 @@ def six_month(
     # 시작 시간을 시계열 변경
     start = pd.to_datetime(_start)
     # 종료 시간은 타입이 문자라면
-    if type(_end) == 'str':
+    if type(_end) == str:
         end = pd.to_datetime(_end)
     else:
         end = _end
