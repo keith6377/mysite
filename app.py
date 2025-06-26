@@ -5,7 +5,13 @@ from invest import Quant
 from database import MyDB
 
 # MyDB class 생성 
-mydb = MyDB()
+mydb = MyDB(
+    _host = 'keith6377.mysql.pythonanywhere-services.com',
+    _port = 3306,
+    _user = 'keith6377',
+    _pw = 'wjddydgh88,',
+    _db_name = 'keith6377$default'
+)
 
 # Flask class 생성 
 # 생성자 함수 필요한 인자 : 파일의 이름 
@@ -98,7 +104,8 @@ def invest():
         """
     )
     # input_code를 이용해서 csv 파일을 로드 
-    df = pd.read_csv(f"csv/{input_code}.csv")
+    # df = pd.read_csv(f"csv/{input_code}.csv")
+    df = pd.read_csv(f'/home/keith6377/mysite/csv/{input_code}.csv')
     df.rename(
         columns = {
             '날짜' : 'Date'
@@ -128,4 +135,4 @@ def invest():
     return res_data
 
 # 웹서버를 실행 
-app.run(debug=True)
+# app.run(debug=True)
